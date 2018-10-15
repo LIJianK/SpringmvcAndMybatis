@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.pro.dao.TaskDao">
+	<insert id="addTask" parameterType="com.pro.domain.Task">
+		insert into task(TASKID,TASKCONTENT,TASKBEGINTIME) values(#{taskId},#{taskContent},#{taskBeginTime})
+	</insert> 
+	<delete id="deleteTask" parameterType="java.lang.Integer">
+		delete from task where taskId=#{taskId}
+	</delete>
+	<update id="updateTask" parameterType="com.pro.domain.Task">
+		update task set TASKCONTENT=#{taskContent},TASKBEGINTIME=#{taskBeginTime} where  TASKID=#{taskId}
+	</update> 
+	<select id="findTaskAll" resultType="com.pro.domain.Task">
+		select * from task
+	</select>
+ </mapper> 
